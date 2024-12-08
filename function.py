@@ -18,6 +18,7 @@ tokens = (
     'EQUALS',
     'NEWLINE',
     'COMMA',
+    'OPERATOR',
 )
 
 # Keywords
@@ -41,6 +42,8 @@ t_LPAREN = r'\('
 t_RPAREN = r'\)'
 t_COLON = r':'
 t_EQUALS = r'='
+t_COMMA = r','
+t_OPERATOR = r'==|!=|<=|>=|<|>'
 
 # Ignore spaces and tabs
 t_ignore = ' \t'
@@ -63,6 +66,7 @@ def t_NEWLINE(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
     return t
+
 
 # Error handling
 def t_error(t):
@@ -129,3 +133,23 @@ def p_error(p):
 
 # Build the parser
 parser = yacc.yacc()
+
+
+# Input code snippet
+input_code = """
+def my_function(x):
+    if x > 10:
+        return x + 5
+    else:
+        return x - 5
+"""
+
+# Run the lexer
+print("Tokens:")
+lexer.input(input_code)
+for token in lexer:
+    print(token)
+
+# Run the parser
+print("\nParsing:")
+parser.parse(input_code)
