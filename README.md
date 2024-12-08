@@ -1,6 +1,6 @@
 # Lex and Syntax Analyzer
 
-This project is a combined Lexical Analyzer and Syntax Analyzer (Parser) that processes input text, generates tokens, and parses them according to a defined grammar. It is designed to be a part of a compiler or interpreter.
+This project is a combined Lexical Analyzer and Syntax Analyzer (Parser) that processes input text, generates tokens, and parses them according to a defined grammar. It is designed to be a part of a compiler.
 
 ## Features
 
