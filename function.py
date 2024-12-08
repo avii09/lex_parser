@@ -72,3 +72,60 @@ def t_error(t):
 # Build the lexer
 lexer = lex.lex()
 
+
+#Syntax analysis (parser)
+
+# Precedence rules for arithmetic operators
+precedence = (
+    ('left', 'PLUS', 'MINUS'),
+    ('left', 'TIMES', 'DIVIDE'),
+)
+
+variables = {}
+
+
+# Grammar rules
+def p_program(p):
+    '''program : statement
+               | statement program'''
+    pass
+
+def p_statement(p):
+    '''statement : function_def
+                 | if_statement
+                 | expression_statement'''
+    pass
+
+def p_function_def(p):
+    '''function_def : DEF IDENTIFIER LPAREN IDENTIFIER RPAREN COLON statement'''
+    print(f"Function definition: {p[2]} with parameter {p[4]}")
+
+def p_if_statement(p):
+    '''if_statement : IF expression COLON statement ELSE COLON statement'''
+    print("If-Else statement detected")
+
+def p_expression_statement(p):
+    '''expression_statement : expression NEWLINE'''
+    print(f"Expression: {p[1]}")
+
+def p_expression(p):
+    '''expression : expression PLUS expression
+                  | expression MINUS expression
+                  | expression TIMES expression
+                  | expression DIVIDE expression
+                  | NUMBER
+                  | IDENTIFIER'''
+    if len(p) == 2:  
+        p[0] = p[1]
+    else:  
+        p[0] = (p[2], p[1], p[3])  
+        print(f"Expression: {p[1]} {p[2]} {p[3]}")
+
+def p_error(p):
+    if p:
+        print(f"Syntax error at token {p.type} ('{p.value}')")
+    else:
+        print("Syntax error at EOF")
+
+# Build the parser
+parser = yacc.yacc()
