@@ -22,6 +22,6 @@ pip install -r requirements.txt
 To use the Lex Parser and Syntax Analyzer, run the following command:
 
 ```bash
-python lex_parser.py
+python function.py
 ```
 
