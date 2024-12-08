@@ -1,6 +1,6 @@
-# Lex Parser and Syntax Analyzer
+# Lex and Syntax Analyzer
 
-This project is a combined Lexical Analyzer (Lex Parser) and Syntax Analyzer that processes input text, generates tokens, and parses them according to a defined grammar. It is designed to be a part of a compiler or interpreter.
+This project is a combined Lexical Analyzer and Syntax Analyzer (Parser) that processes input text, generates tokens, and parses them according to a defined grammar. It is designed to be a part of a compiler or interpreter.
 
 ## Features
 
@@ -19,7 +19,7 @@ pip install -r requirements.txt
 
 ## Usage
 
-To use the Lex Parser and Syntax Analyzer, run the following command:
+To use the Lex and Syntax Analyzer, run the following command:
 
 ```bash
 python function.py
